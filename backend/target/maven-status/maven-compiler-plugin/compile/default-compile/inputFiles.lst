@@ -1,0 +1,13 @@
+/Users/asher/Documents/Developer/TypeMesh/backend/src/main/java/com/typemesh/backend/TypeMeshApplication.java
+/Users/asher/Documents/Developer/TypeMesh/backend/src/main/java/com/typemesh/backend/api/HealthController.java
+/Users/asher/Documents/Developer/TypeMesh/backend/src/main/java/com/typemesh/backend/api/HealthResponse.java
+/Users/asher/Documents/Developer/TypeMesh/backend/src/main/java/com/typemesh/backend/api/MeshController.java
+/Users/asher/Documents/Developer/TypeMesh/backend/src/main/java/com/typemesh/backend/api/WebConfig.java
+/Users/asher/Documents/Developer/TypeMesh/backend/src/main/java/com/typemesh/backend/mesh/GlyphCatalog.java
+/Users/asher/Documents/Developer/TypeMesh/backend/src/main/java/com/typemesh/backend/mesh/GlyphMesh.java
+/Users/asher/Documents/Developer/TypeMesh/backend/src/main/java/com/typemesh/backend/mesh/GridSpec.java
+/Users/asher/Documents/Developer/TypeMesh/backend/src/main/java/com/typemesh/backend/mesh/MeshPoint.java
+/Users/asher/Documents/Developer/TypeMesh/backend/src/main/java/com/typemesh/backend/mesh/MeshService.java
+/Users/asher/Documents/Developer/TypeMesh/backend/src/main/java/com/typemesh/backend/mesh/PathCommand.java
+/Users/asher/Documents/Developer/TypeMesh/backend/src/main/java/com/typemesh/backend/mesh/Stroke.java
+/Users/asher/Documents/Developer/TypeMesh/backend/src/main/java/com/typemesh/backend/mesh/WordMesh.java

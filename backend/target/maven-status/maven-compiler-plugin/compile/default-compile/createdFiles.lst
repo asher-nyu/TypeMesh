@@ -1,0 +1,13 @@
+com/typemesh/backend/mesh/GridSpec.class
+com/typemesh/backend/mesh/Stroke.class
+com/typemesh/backend/mesh/GlyphMesh.class
+com/typemesh/backend/api/WebConfig.class
+com/typemesh/backend/mesh/MeshService.class
+com/typemesh/backend/api/MeshController.class
+com/typemesh/backend/mesh/PathCommand.class
+com/typemesh/backend/api/HealthController.class
+com/typemesh/backend/mesh/GlyphCatalog.class
+com/typemesh/backend/api/HealthResponse.class
+com/typemesh/backend/TypeMeshApplication.class
+com/typemesh/backend/mesh/MeshPoint.class
+com/typemesh/backend/mesh/WordMesh.class

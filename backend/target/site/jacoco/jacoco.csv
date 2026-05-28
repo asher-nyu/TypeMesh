@@ -1,0 +1,14 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+typemesh-backend,com.typemesh.backend.mesh,GlyphCatalog,1,1728,1,1,0,134,1,35,0,35
+typemesh-backend,com.typemesh.backend.mesh,GlyphMesh,0,12,0,0,0,1,0,1,0,1
+typemesh-backend,com.typemesh.backend.mesh,PathCommand,0,24,0,0,0,1,0,1,0,1
+typemesh-backend,com.typemesh.backend.mesh,MeshPoint,0,9,0,0,0,1,0,1,0,1
+typemesh-backend,com.typemesh.backend.mesh,WordMesh,0,9,0,0,0,1,0,1,0,1
+typemesh-backend,com.typemesh.backend.mesh,GridSpec,0,9,0,0,0,1,0,1,0,1
+typemesh-backend,com.typemesh.backend.mesh,Stroke,0,6,0,0,0,1,0,1,0,1
+typemesh-backend,com.typemesh.backend.mesh,MeshService,4,59,3,3,1,17,3,5,0,5
+typemesh-backend,com.typemesh.backend,TypeMeshApplication,5,3,0,0,2,1,1,1,1,1
+typemesh-backend,com.typemesh.backend.api,WebConfig,0,26,0,0,0,5,0,2,0,2
+typemesh-backend,com.typemesh.backend.api,HealthController,0,10,0,0,0,2,0,2,0,2
+typemesh-backend,com.typemesh.backend.api,MeshController,0,11,0,0,0,4,0,2,0,2
+typemesh-backend,com.typemesh.backend.api,HealthResponse,0,12,0,0,0,1,0,1,0,1

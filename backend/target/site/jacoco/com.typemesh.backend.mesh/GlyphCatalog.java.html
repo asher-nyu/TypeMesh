@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GlyphCatalog.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">typemesh-backend</a> &gt; <a href="index.source.html" class="el_package">com.typemesh.backend.mesh</a> &gt; <span class="el_source">GlyphCatalog.java</span></div><h1>GlyphCatalog.java</h1><pre class="source lang-java linenums">package com.typemesh.backend.mesh;
+
+import static java.util.Map.entry;
+
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
+import org.springframework.stereotype.Component;
+
+@Component
+<span class="fc" id="L12">public class GlyphCatalog {</span>
+<span class="fc" id="L13">	private static final GridSpec GRID = new GridSpec(2, 4);</span>
+	private static final double BOWL_RADIUS = 1.08;
+<span class="fc" id="L15">	private final Map&lt;String, List&lt;Stroke&gt;&gt; glyphs = Map.ofEntries(</span>
+<span class="fc" id="L16">		entry(&quot;A&quot;, glyphA()),</span>
+<span class="fc" id="L17">		entry(&quot;B&quot;, glyphB()),</span>
+<span class="fc" id="L18">		entry(&quot;C&quot;, glyphC()),</span>
+<span class="fc" id="L19">		entry(&quot;D&quot;, glyphD()),</span>
+<span class="fc" id="L20">		entry(&quot;E&quot;, glyphE()),</span>
+<span class="fc" id="L21">		entry(&quot;F&quot;, glyphF()),</span>
+<span class="fc" id="L22">		entry(&quot;G&quot;, glyphG()),</span>
+<span class="fc" id="L23">		entry(&quot;H&quot;, glyphH()),</span>
+<span class="fc" id="L24">		entry(&quot;I&quot;, glyphI()),</span>
+<span class="fc" id="L25">		entry(&quot;J&quot;, glyphJ()),</span>
+<span class="fc" id="L26">		entry(&quot;K&quot;, glyphK()),</span>
+<span class="fc" id="L27">		entry(&quot;L&quot;, glyphL()),</span>
+<span class="fc" id="L28">		entry(&quot;M&quot;, glyphM()),</span>
+<span class="fc" id="L29">		entry(&quot;N&quot;, glyphN()),</span>
+<span class="fc" id="L30">		entry(&quot;O&quot;, glyphO()),</span>
+<span class="fc" id="L31">		entry(&quot;P&quot;, glyphP()),</span>
+<span class="fc" id="L32">		entry(&quot;Q&quot;, glyphQ()),</span>
+<span class="fc" id="L33">		entry(&quot;R&quot;, glyphR()),</span>
+<span class="fc" id="L34">		entry(&quot;S&quot;, glyphS()),</span>
+<span class="fc" id="L35">		entry(&quot;T&quot;, glyphT()),</span>
+<span class="fc" id="L36">		entry(&quot;U&quot;, glyphU()),</span>
+<span class="fc" id="L37">		entry(&quot;V&quot;, glyphV()),</span>
+<span class="fc" id="L38">		entry(&quot;W&quot;, glyphW()),</span>
+<span class="fc" id="L39">		entry(&quot;X&quot;, glyphX()),</span>
+<span class="fc" id="L40">		entry(&quot;Y&quot;, glyphY()),</span>
+<span class="fc" id="L41">		entry(&quot;Z&quot;, glyphZ()),</span>
+<span class="fc" id="L42">		entry(&quot;?&quot;, glyphFallback())</span>
+	);
+
+	public GlyphMesh glyph(String letter) {
+<span class="fc" id="L46">		String normalized = letter.toUpperCase(Locale.ROOT);</span>
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">		String key = glyphs.containsKey(normalized) ? normalized : &quot;?&quot;;</span>
+<span class="fc" id="L48">		return new GlyphMesh(key, GRID, glyphs.get(key));</span>
+	}
+
+	private static List&lt;Stroke&gt; glyphA() {
+<span class="fc" id="L52">		return List.of(</span>
+<span class="fc" id="L53">			stroke(move(point(0, 4)), line(point(1, 0)), line(point(2, 4))),</span>
+<span class="fc" id="L54">			stroke(move(point(0.6, 2)), line(point(1.4, 2)))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphB() {
+<span class="fc" id="L59">		return List.of(</span>
+<span class="fc" id="L60">			stroke(move(point(0, 0)), line(point(0, 4))),</span>
+<span class="fc" id="L61">			stroke(move(point(0, 0)), line(point(1, 0))),</span>
+<span class="fc" id="L62">			stroke(move(point(0, 2)), line(point(1, 2))),</span>
+<span class="fc" id="L63">			stroke(move(point(0, 4)), line(point(1, 4))),</span>
+<span class="fc" id="L64">			stroke(move(point(1, 0)), arc(point(1, 2), BOWL_RADIUS, BOWL_RADIUS, false, true)),</span>
+<span class="fc" id="L65">			stroke(move(point(1, 2)), arc(point(1, 4), BOWL_RADIUS, BOWL_RADIUS, false, true))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphC() {
+<span class="fc" id="L70">		return List.of(</span>
+<span class="fc" id="L71">			stroke(move(point(2, 1)), arc(point(0, 1), 1, 1, false, false)),</span>
+<span class="fc" id="L72">			stroke(move(point(0, 1)), line(point(0, 3))),</span>
+<span class="fc" id="L73">			stroke(move(point(0, 3)), arc(point(2, 3), 1, 1, false, false))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphD() {
+<span class="fc" id="L78">		return List.of(</span>
+<span class="fc" id="L79">			stroke(move(point(0, 0)), line(point(0, 4))),</span>
+<span class="fc" id="L80">			stroke(move(point(0, 0)), line(point(1, 0))),</span>
+<span class="fc" id="L81">			stroke(move(point(1, 0)), arc(point(2, 1), 1, 1, false, true)),</span>
+<span class="fc" id="L82">			stroke(move(point(2, 1)), line(point(2, 3))),</span>
+<span class="fc" id="L83">			stroke(move(point(2, 3)), arc(point(1, 4), 1, 1, false, true)),</span>
+<span class="fc" id="L84">			stroke(move(point(1, 4)), line(point(0, 4)))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphE() {
+<span class="fc" id="L89">		return List.of(</span>
+<span class="fc" id="L90">			stroke(move(point(2, 0)), line(point(0, 0)), line(point(0, 4)), line(point(2, 4))),</span>
+<span class="fc" id="L91">			stroke(move(point(0, 2)), line(point(1.55, 2)))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphF() {
+<span class="fc" id="L96">		return List.of(</span>
+<span class="fc" id="L97">			stroke(move(point(0, 4)), line(point(0, 0)), line(point(2, 0))),</span>
+<span class="fc" id="L98">			stroke(move(point(0, 2)), line(point(1.55, 2)))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphG() {
+<span class="fc" id="L103">		return List.of(</span>
+<span class="fc" id="L104">			stroke(move(point(2, 1)), arc(point(0, 1), 1, 1, false, false)),</span>
+<span class="fc" id="L105">			stroke(move(point(0, 1)), line(point(0, 3))),</span>
+<span class="fc" id="L106">			stroke(move(point(0, 3)), arc(point(2, 3), 1, 1, false, false)),</span>
+<span class="fc" id="L107">			stroke(move(point(2, 3)), line(point(2, 2))),</span>
+<span class="fc" id="L108">			stroke(move(point(2, 2)), line(point(1, 2)))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphH() {
+<span class="fc" id="L113">		return List.of(</span>
+<span class="fc" id="L114">			stroke(move(point(0, 0)), line(point(0, 4))),</span>
+<span class="fc" id="L115">			stroke(move(point(2, 0)), line(point(2, 4))),</span>
+<span class="fc" id="L116">			stroke(move(point(0, 2)), line(point(2, 2)))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphI() {
+<span class="fc" id="L121">		return List.of(</span>
+<span class="fc" id="L122">			stroke(move(point(0, 0)), line(point(2, 0))),</span>
+<span class="fc" id="L123">			stroke(move(point(1, 0)), line(point(1, 4))),</span>
+<span class="fc" id="L124">			stroke(move(point(0, 4)), line(point(2, 4)))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphJ() {
+<span class="fc" id="L129">		return List.of(</span>
+<span class="fc" id="L130">			stroke(move(point(2, 0)), line(point(2, 3)), arc(point(0, 3), 1, 1, false, true))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphK() {
+<span class="fc" id="L135">		return List.of(</span>
+<span class="fc" id="L136">			stroke(move(point(0, 0)), line(point(0, 4))),</span>
+<span class="fc" id="L137">			stroke(move(point(2, 0)), line(point(0, 2)), line(point(2, 4)))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphL() {
+<span class="fc" id="L142">		return List.of(</span>
+<span class="fc" id="L143">			stroke(move(point(0, 0)), line(point(0, 4)), line(point(2, 4)))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphM() {
+<span class="fc" id="L148">		return List.of(</span>
+<span class="fc" id="L149">			stroke(move(point(0, 4)), line(point(0, 0)), line(point(1, 2)), line(point(2, 0)), line(point(2, 4)))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphN() {
+<span class="fc" id="L154">		return List.of(</span>
+<span class="fc" id="L155">			stroke(move(point(0, 4)), line(point(0, 0)), line(point(2, 4)), line(point(2, 0)))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphO() {
+<span class="fc" id="L160">		return List.of(</span>
+<span class="fc" id="L161">			stroke(move(point(2, 1)), arc(point(0, 1), 1, 1, false, false)),</span>
+<span class="fc" id="L162">			stroke(move(point(0, 1)), line(point(0, 3))),</span>
+<span class="fc" id="L163">			stroke(move(point(0, 3)), arc(point(2, 3), 1, 1, false, false)),</span>
+<span class="fc" id="L164">			stroke(move(point(2, 3)), line(point(2, 1)))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphP() {
+<span class="fc" id="L169">		return List.of(</span>
+<span class="fc" id="L170">			stroke(move(point(0, 4)), line(point(0, 0))),</span>
+<span class="fc" id="L171">			stroke(move(point(0, 0)), line(point(1, 0))),</span>
+<span class="fc" id="L172">			stroke(move(point(0, 2)), line(point(1, 2))),</span>
+<span class="fc" id="L173">			stroke(move(point(1, 0)), arc(point(1, 2), BOWL_RADIUS, BOWL_RADIUS, false, true))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphQ() {
+<span class="fc" id="L178">		return List.of(</span>
+<span class="fc" id="L179">			stroke(move(point(2, 1)), arc(point(0, 1), 1, 1, false, false)),</span>
+<span class="fc" id="L180">			stroke(move(point(0, 1)), line(point(0, 3))),</span>
+<span class="fc" id="L181">			stroke(move(point(0, 3)), arc(point(2, 3), 1, 1, false, false)),</span>
+<span class="fc" id="L182">			stroke(move(point(2, 3)), line(point(2, 1))),</span>
+<span class="fc" id="L183">			stroke(move(point(1, 2)), line(point(2, 4)))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphR() {
+<span class="fc" id="L188">		return List.of(</span>
+<span class="fc" id="L189">			stroke(move(point(0, 4)), line(point(0, 0))),</span>
+<span class="fc" id="L190">			stroke(move(point(0, 0)), line(point(1, 0))),</span>
+<span class="fc" id="L191">			stroke(move(point(0, 2)), line(point(1, 2))),</span>
+<span class="fc" id="L192">			stroke(move(point(1, 0)), arc(point(1, 2), BOWL_RADIUS, BOWL_RADIUS, false, true)),</span>
+<span class="fc" id="L193">			stroke(move(point(1, 2)), line(point(2, 4)))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphS() {
+<span class="fc" id="L198">		return List.of(</span>
+<span class="fc" id="L199">			stroke(move(point(2, 1)), arc(point(1, 2), 1, 1, true, false), arc(point(0, 3), 1, 1, true, true))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphT() {
+<span class="fc" id="L204">		return List.of(</span>
+<span class="fc" id="L205">			stroke(move(point(0, 0)), line(point(2, 0))),</span>
+<span class="fc" id="L206">			stroke(move(point(1, 0)), line(point(1, 4)))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphU() {
+<span class="fc" id="L211">		return List.of(</span>
+<span class="fc" id="L212">			stroke(move(point(0, 0)), line(point(0, 3)), arc(point(2, 3), 1, 1, false, false), line(point(2, 0)))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphV() {
+<span class="fc" id="L217">		return List.of(</span>
+<span class="fc" id="L218">			stroke(move(point(0, 0)), line(point(1, 4)), line(point(2, 0)))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphW() {
+<span class="fc" id="L223">		return List.of(</span>
+<span class="fc" id="L224">			stroke(move(point(0, 0)), line(point(0.5, 4)), line(point(1, 2)), line(point(1.5, 4)), line(point(2, 0)))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphX() {
+<span class="fc" id="L229">		return List.of(</span>
+<span class="fc" id="L230">			stroke(move(point(0, 0)), line(point(2, 4))),</span>
+<span class="fc" id="L231">			stroke(move(point(2, 0)), line(point(0, 4)))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphY() {
+<span class="fc" id="L236">		return List.of(</span>
+<span class="fc" id="L237">			stroke(move(point(0, 0)), line(point(1, 2)), line(point(2, 0))),</span>
+<span class="fc" id="L238">			stroke(move(point(1, 2)), line(point(1, 4)))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphZ() {
+<span class="fc" id="L243">		return List.of(</span>
+<span class="fc" id="L244">			stroke(move(point(0, 0)), line(point(2, 0)), line(point(0, 4)), line(point(2, 4)))</span>
+		);
+	}
+
+	private static List&lt;Stroke&gt; glyphFallback() {
+<span class="fc" id="L249">		return List.of(</span>
+<span class="fc" id="L250">			stroke(move(point(0, 0.75)), arc(point(2, 0.75), 1, 0.75, false, true), arc(point(1, 2.4), 1, 1, false, true), line(point(1, 3))),</span>
+<span class="fc" id="L251">			stroke(move(point(1, 3.75)), line(point(1, 4)))</span>
+		);
+	}
+
+	private static Stroke stroke(PathCommand... commands) {
+<span class="fc" id="L256">		return new Stroke(List.of(commands));</span>
+	}
+
+	private static PathCommand move(MeshPoint point) {
+<span class="fc" id="L260">		return new PathCommand(&quot;M&quot;, List.of(point), null, null, null, null, null);</span>
+	}
+
+	private static PathCommand line(MeshPoint point) {
+<span class="fc" id="L264">		return new PathCommand(&quot;L&quot;, List.of(point), null, null, null, null, null);</span>
+	}
+
+	private static PathCommand arc(MeshPoint point, double radiusX, double radiusY, boolean largeArc, boolean sweep) {
+<span class="fc" id="L268">		return new PathCommand(&quot;A&quot;, List.of(point), radiusX, radiusY, 0.0, largeArc, sweep);</span>
+	}
+
+	private static MeshPoint point(double x, double y) {
+<span class="fc" id="L272">		return new MeshPoint(x, y);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

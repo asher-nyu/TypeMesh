@@ -1,0 +1,22 @@
+{
+  "name": "typemesh",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "frontend"
+  ],
+  "scripts": {
+    "frontend:dev": "npm run dev --workspace frontend",
+    "frontend:build": "npm run build --workspace frontend",
+    "frontend:preview": "npm run preview --workspace frontend",
+    "frontend:test": "npm run test --workspace frontend",
+    "frontend:coverage": "npm run coverage --workspace frontend",
+    "frontend:e2e": "npm run e2e --workspace frontend",
+    "backend:test": "cd backend && mvn test",
+    "backend:coverage": "cd backend && mvn verify",
+    "test": "npm run backend:test && npm run frontend:test",
+    "test:coverage": "npm run backend:coverage && npm run frontend:coverage",
+    "test:e2e": "npm run frontend:e2e",
+    "ci": "npm run backend:coverage && npm run frontend:build && npm run frontend:coverage && npm run frontend:e2e"
+  }
+}
